@@ -14,10 +14,10 @@ class ContactsSeeder extends Seeder
      */
     public function run(): void
     {
-        $contactsIds = User::pluck('user_id')->toArray();
+        $contactsIds = User::pluck('id')->toArray();
         
         Contacts::factory()->count(20)->create([
-            'user_id' => fn () => $contactsIds[array_rand($contactsIds)] 
+            'user_id' => fn () => $contactsIds[array_rand($contactsIds)],
         ]);
         
     }
